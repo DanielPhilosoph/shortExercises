@@ -1,5 +1,9 @@
-//import "./styles.css";
-import { equals } from "./helpers/math.js";
+import "./styles.css";
+import { equals, add, sub, divide, multiply, modulo } from "./helpers/math.js";
+
+// ===============================
+// ========= Events ==============
+// ===============================
 
 function onDigitClick(event) {
   let resultInput = document.querySelector("#result");
@@ -22,9 +26,36 @@ function onEqualsClick(event) {
   if (calcArray.length > 3) {
     resultInput.value = "Only 1 operator";
   } else {
-    resultInput.value = equals(calcArray[0], calcArray[1], calcArray[2]);
+    let operatorFunction = getOperatorFunction(calcArray[1]);
+    resultInput.value = equals(
+      parseInt(calcArray[0]),
+      parseInt(calcArray[2]),
+      operatorFunction
+    );
   }
 }
+
+// ===============================
+// ====== Extra Functions ========
+// ===============================
+
+function getOperatorFunction(simbol) {
+  if (simbol === "+") {
+    return add;
+  } else if (simbol === "-") {
+    return sub;
+  } else if (simbol === "/") {
+    return divide;
+  } else if (simbol === "X") {
+    return multiply;
+  } else if (simbol === "%") {
+    return modulo;
+  }
+}
+
+// ===============================
+// ========= Main ================
+// ===============================
 
 function main() {
   document.querySelector("#equals").addEventListener("click", onEqualsClick);
