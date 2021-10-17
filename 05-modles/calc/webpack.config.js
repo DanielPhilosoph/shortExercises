@@ -9,7 +9,7 @@ module.exports = {
   mode: "development",
   output: {
     filename: "index.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "webpack-dist"),
     publicPath: "./",
     assetModuleFilename: "images/[name][ext][query]",
   },
