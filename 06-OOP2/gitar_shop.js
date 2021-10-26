@@ -61,6 +61,7 @@ class ElectricGuitar extends ClassicGuitar {
     price,
     numberOfString = 6,
     used = false,
+     id,
     longNeck
   ) {
     super(munifuctureYear, brand, price, numberOfString, used, id);
